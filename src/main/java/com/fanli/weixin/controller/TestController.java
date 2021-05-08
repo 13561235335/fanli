@@ -4,6 +4,7 @@ import com.fanli.weixin.domain.GetMsg;
 import com.fanli.weixin.utils.MessgaeUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,22 @@ import java.util.Map;
 @RestController
 public class TestController {
 
+    /**
+     * 微信认证接口
+     * @param echostr
+     * @return
+     */
+    @GetMapping("/hello")
+    public String hello(@RequestParam("echostr") String echostr) {
+        return echostr;
+    }
+
+    /**
+     * 用户发送消息 接收回复接口
+     * @param request
+     * @param response
+     * @throws Exception
+     */
     @PostMapping("/hello")
     public void hello(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
